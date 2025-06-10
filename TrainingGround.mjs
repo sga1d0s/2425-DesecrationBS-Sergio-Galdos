@@ -34,23 +34,36 @@ export default class TrainingGround {
     }
 
     const randomIndex = Math.floor(Math.random() * superHeroes.length)
-    
+
     return superHeroes[randomIndex]
   }
 
   static createVillain(data) {
 
     // crear villano buscando el character
+    const superVillain = []
 
+    for (let i = 0; i < data.length; i++) {
+      const character = data[i];
+      const powerStats = character.powerstats
+
+      const villain = new Villain(
+        character.id,
+        character.name,
+        powerStats.intelligence,
+        powerStats.strength,
+        powerStats.durability,
+        powerStats.speed,
+        powerStats.power,
+        powerStats.combat,
+      )
+
+      if (villain.name === "Junkpile") {
+        superVillain.push(villain)
+      }
+
+    }
+
+    return superVillain[0]
   }
-
-  static createFighters(data){
-
-    const randomIndex = Math.floor(Math.random() * this.values.length)
-    const hero = this.createSuperHero(data)[randomIndex]
-    const villain = this.createVillain(data)
-
-    return{hero, villain}
-  }
-
 }
