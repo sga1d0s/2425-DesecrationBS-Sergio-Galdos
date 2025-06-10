@@ -1,6 +1,7 @@
 import Die from "./Die.mjs"
 import Character from "./Character.mjs"
 import TrainingGround from "./TrainingGround.mjs"
+import Combat from "./Combat.mjs"
 
 main()
 
@@ -12,20 +13,29 @@ async function main() {
   const data = await response.json()
 
   // create dies
-  let die = new Die
-  let die100 = die.createD100()
+  let dies = createDies()
 
-  let value = die100.roll()
-
-  // console.log(value)
+  // console.log(dies[1].values)
 
   // create fighters
   const hero = TrainingGround.createSuperHero(data)
   const villain = TrainingGround.createVillain(data)
 
   // create combat
+  const combat = new Combat(hero, villain, dies)
 
+  combat.execute()
 
-  // combat.execute()()
+}
 
+function createDies() {
+  let dies = []
+  let die = new Die
+
+  dies.push(die.createD3())
+  dies.push(die.createD5())
+  dies.push(die.createD20())
+  dies.push(die.createD100())
+
+  return dies
 }
