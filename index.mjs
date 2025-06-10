@@ -1,5 +1,7 @@
 import Die from "./Die.mjs"
-
+import Character from "./Character.mjs"
+import TrainingGround
+ from "./TrainingGround.mjs"
 main()
 
 async function main() {
@@ -16,10 +18,12 @@ async function main() {
   let value = die100.roll()
 
 
-  console.log(value)
-
+  // console.log(value)
 
   // create characters
+  const characters = TrainingGround.createSuperHero(data)
+
+  console.log(characters)
 
   // create combat
 
