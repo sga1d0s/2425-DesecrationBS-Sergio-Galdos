@@ -27,10 +27,13 @@ export default class Combat {
     if (this.fighter1.INT + this.fighter1.COM >= this.fighter2.INT + this.fighter2.COM) {
       console.log("------------------------------")
       console.log("El primer asalto es para " + this.fighter1.name)
+      console.log("------------------------------")
       fighters = [this.fighter2, this.fighter1]
+
     } else {
       console.log("------------------------------")
       console.log("El primer asalto es para " + this.fighter2.name)
+      console.log("------------------------------")
       fighters = [this.fighter1, this.fighter2]
     }
 
@@ -52,7 +55,10 @@ export default class Combat {
         // lanzamos 1d20
         let rollDie20 = this.dies[2].roll()
 
-        fighters[turn].atack(rollDie20)
+        let damage = fighters[turn].atack(rollDie20)
+        console.log(damage)
+
+        fighters[enemyTurn].HP -= damage
 
       } else {
         console.log(fighters[turn].name + " obtiene un " + rollDie100 + " y ha fallado")
@@ -61,10 +67,7 @@ export default class Combat {
       // FASE 2 Daño del ataque
 
       round++
-      // console.log(fighters)
-
-      console.log(turn)
-      console.log(enemyTurn)
+      console.log(fighters)
     }
 
   }
@@ -72,15 +75,19 @@ export default class Combat {
   getTurn(round) {
     // cambiode turno
     if (round % 2 === 0) {
+      return 0
+    } else {
       return 1
-    } else { return 0 }
+    }
   }
 
   getEnemyTurn(round) {
     // cambiode turno
     if (round % 2 != 0) {
+      return 0
+    } else {
       return 1
-    } else { return 0 }
+    }
   }
 
   getGameOver() {

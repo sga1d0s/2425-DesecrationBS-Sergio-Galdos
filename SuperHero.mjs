@@ -9,7 +9,7 @@ export default class SuperHero extends Character {
     console.log("ATAQUE HEROE " + die)
     console.log(this.HP)
 
-    return 20
+    return die
   }
 
   // calculate critical
