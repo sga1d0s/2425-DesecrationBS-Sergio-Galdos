@@ -53,12 +53,18 @@ export default class Combat {
         console.log(fighters[turn].name + " obtiene un " + rollDie100 + " y ataca con éxito")
 
         // lanzamos 1d20
-        let rollDie20 = this.dies[2].roll()
+        // let rollDie20 = this.dies[2].roll()
+        let rollDie20 = 2
 
-        let damage = fighters[turn].atack(rollDie20)
+        let damage = fighters[turn].atack(rollDie20, this.dies)
         console.log(damage)
 
-        fighters[enemyTurn].HP -= damage
+        if (rollDie20 < 3 && fighters[turn].name != 'Junkpile') {
+          fighters[turn].HP -= damage
+        } else {
+          fighters[enemyTurn].HP -= damage
+        }
+
 
       } else {
         console.log(fighters[turn].name + " obtiene un " + rollDie100 + " y ha fallado")

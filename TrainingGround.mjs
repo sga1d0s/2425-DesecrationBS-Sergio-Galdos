@@ -17,7 +17,6 @@ export default class TrainingGround {
       const powerStats = character.powerstats
 
       const superHero = new SuperHero(
-        character.id,
         character.name,
         powerStats.intelligence,
         powerStats.strength,
@@ -47,7 +46,6 @@ export default class TrainingGround {
       const powerStats = character.powerstats
 
       const villain = new Villain(
-        character.id,
         character.name,
         powerStats.intelligence,
         powerStats.strength,

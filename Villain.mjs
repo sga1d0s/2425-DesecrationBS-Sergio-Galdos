@@ -1,15 +1,16 @@
 import Character from './Character.mjs'
 
 export default class Villain extends Character {
-  constructor(id, name, intelligence, strength, durability, speed, power, combat) {
-    super(id, name, intelligence, strength, durability, speed, power, combat)
+  constructor(name, intelligence, strength, durability, speed, power, combat) {
+    super(name, intelligence, strength, durability, speed, power, combat)
   }
 
-  atack(die) {
-    console.log("ATAQUE HEROE " + die)
-    console.log(this.HP)
+  atack(die, dies) {
+    console.log("ATAQUE VILLANO")
 
-    return die
+    let damage = 50
+
+    return damage
   }
 
   // calculate critical

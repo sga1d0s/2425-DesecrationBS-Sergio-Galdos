@@ -18,10 +18,10 @@ async function main() {
   // console.log(dies[1].values)
 
   // create fighters
-  const character = new TrainingGround(data)
+  const character = new TrainingGround(data, dies)
 
-  const hero = character.createSuperHero(data)
-  const villain = character.createVillain(data)
+  const hero = character.createSuperHero(data, dies)
+  const villain = character.createVillain(data, dies)
 
   // create combat
   const combat = new Combat(hero, villain, dies)
