@@ -1,11 +1,9 @@
-import Die from "./Die.mjs"
-import SuperHero from "./SuperHero.mjs"
 
 export default class Combat {
   constructor(fighter1, fighter2, dies) {
-    this.fighter1 = fighter1,
-      this.fighter2 = fighter2,
-      this.dies = dies
+    this.fighter1 = fighter1
+    this.fighter2 = fighter2
+    this.dies = dies
   }
 
   execute() {
@@ -28,13 +26,13 @@ export default class Combat {
       console.log("------------------------------")
       console.log("El primer asalto es para " + this.fighter1.name)
       console.log("------------------------------")
-      fighters = [this.fighter2, this.fighter1]
+      fighters = [this.fighter1, this.fighter2]
 
     } else {
       console.log("------------------------------")
       console.log("El primer asalto es para " + this.fighter2.name)
       console.log("------------------------------")
-      fighters = [this.fighter1, this.fighter2]
+      fighters = [this.fighter2, this.fighter1]
     }
 
     while (this.getGameOver()) {
@@ -80,18 +78,18 @@ export default class Combat {
   getTurn(round) {
     // cambiode turno
     if (round % 2 === 0) {
-      return 0
-    } else {
       return 1
+    } else {
+      return 0
     }
   }
 
   getEnemyTurn(round) {
     // cambiode turno
     if (round % 2 != 0) {
-      return 0
-    } else {
       return 1
+    } else {
+      return 0
     }
   }
 

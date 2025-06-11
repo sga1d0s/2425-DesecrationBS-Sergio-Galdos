@@ -1,5 +1,4 @@
 import Die from "./Die.mjs"
-import Character from "./Character.mjs"
 import TrainingGround from "./TrainingGround.mjs"
 import Combat from "./Combat.mjs"
 
@@ -14,8 +13,6 @@ async function main() {
 
   // create dies
   let dies = createDies()
-
-  // console.log(dies[1].values)
 
   // create fighters
   const character = new TrainingGround(data, dies)
