@@ -6,6 +6,8 @@ export default class Villain extends Character {
   }
 
   atack(rollDie20, dies) {
+    let damage = null
+
     // DAÑO NORMAL
     if (rollDie20 < 18 && rollDie20 > 2) {
       damage = Math.ceil((this.POW + this.STR) * rollDie20 / 100)
@@ -14,7 +16,7 @@ export default class Villain extends Character {
     } else if (rollDie20 >= 18) {
       console.log("DAÑO CRÍTICO HEROE")
 
-      damage = 20
+      damage = 100
     }
 
     return damage

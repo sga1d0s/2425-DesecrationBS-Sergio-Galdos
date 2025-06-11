@@ -1,5 +1,4 @@
 import Character from './Character.mjs'
-import Die from './Die.mjs'
 
 export default class SuperHero extends Character {
   constructor(name, intelligence, strength, durability, speed, power, combat) {
@@ -27,7 +26,7 @@ export default class SuperHero extends Character {
     } else if (rollDie20 >= 18) {
       console.log("DAÑO CRÍTICO HEROE")
 
-      damage = 20
+      damage = 100
     }
 
     return damage

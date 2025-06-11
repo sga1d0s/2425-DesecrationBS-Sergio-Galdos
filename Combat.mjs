@@ -54,10 +54,9 @@ export default class Combat {
 
         // lanzamos 1d20
         let rollDie20 = this.dies[2].roll()
-        // let rollDie20 = 15
 
+        // obtener daño del ataque
         let damage = fighters[turn].atack(rollDie20, this.dies)
-        console.log(damage)
 
         if (rollDie20 < 3 && fighters[turn].name != 'Junkpile') {
           fighters[turn].HP -= damage
