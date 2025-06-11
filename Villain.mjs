@@ -5,10 +5,17 @@ export default class Villain extends Character {
     super(name, intelligence, strength, durability, speed, power, combat)
   }
 
-  atack(die, dies) {
-    console.log("ATAQUE VILLANO")
+  atack(rollDie20, dies) {
+    // DAÑO NORMAL
+    if (rollDie20 < 18 && rollDie20 > 2) {
+      damage = Math.ceil((this.POW + this.STR) * rollDie20 / 100)
 
-    let damage = 50
+      // DAÑO CRÍTICO
+    } else if (rollDie20 >= 18) {
+      console.log("DAÑO CRÍTICO HEROE")
+
+      damage = 20
+    }
 
     return damage
   }

@@ -1,6 +1,6 @@
 export default class Character {
   constructor(name, intelligence, strength, durability, speed, power, combat) {
-      this.name = name,
+    this.name = name,
       this.INT = intelligence,
       this.STR = strength,
       this.DUR = durability,

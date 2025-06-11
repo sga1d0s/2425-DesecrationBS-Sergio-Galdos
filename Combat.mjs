@@ -37,7 +37,7 @@ export default class Combat {
       fighters = [this.fighter1, this.fighter2]
     }
 
-    while (round < 4) {
+    while (this.getGameOver()) {
       let turn = this.getTurn(round)
       let enemyTurn = this.getEnemyTurn(round)
 
@@ -53,8 +53,8 @@ export default class Combat {
         console.log(fighters[turn].name + " obtiene un " + rollDie100 + " y ataca con éxito")
 
         // lanzamos 1d20
-        // let rollDie20 = this.dies[2].roll()
-        let rollDie20 = 2
+        let rollDie20 = this.dies[2].roll()
+        // let rollDie20 = 15
 
         let damage = fighters[turn].atack(rollDie20, this.dies)
         console.log(damage)
