@@ -1,4 +1,5 @@
 import Die from "./Die.mjs"
+import SuperHero from "./SuperHero.mjs"
 
 export default class Combat {
   constructor(fighter1, fighter2, dies) {
@@ -33,8 +34,10 @@ export default class Combat {
       fighters = [this.fighter1, this.fighter2]
     }
 
-    while (this.getGameOver()) {
-      let turn = this.getEnemyTurn(round)
+    while (round < 4) {
+      let turn = this.getTurn(round)
+      let enemyTurn = this.getEnemyTurn(round)
+
       // FASE 1 exito o fracaso en el ataque
       console.log("Comienza el asalto " + round)
       console.log("------------------")
@@ -42,38 +45,14 @@ export default class Combat {
 
       let rollDie100 = this.dies[3].roll()
 
-      // sirolldie igual o menor que COM el ataque tiene éxito
+      // si rolldie igual o menor que COM el ataque tiene éxito
       if (rollDie100 <= fighters[turn].COM) {
         console.log(fighters[turn].name + " obtiene un " + rollDie100 + " y ataca con éxito")
 
         // lanzamos 1d20
         let rollDie20 = this.dies[2].roll()
 
-        switch (fighters[turn].name) {
-          case "Junkpile":
-            if (rollDie20 < 18) {
-              console.log("DAÑO NORMAL VILLANO")
-            } else {
-              console.log("DAÑO CRÍTICO VILLANO")
-            }
-            break;
-
-          default:
-            if (rollDie20 < 3) {
-              console.log("PIFIA HEROE")
-            } else if (rollDie20 < 18 && rollDie20 > 2) {
-              console.log("DAÑO NORMAL HEROE")
-              let dieDamage20 = this.dies[2].roll()
-              let normalDamage = (fighters[turn].POW + fighters[turn].STR) * dieDamage20 / 100
-
-              let damageRounded = Math.ceil(normalDamage)
-              fighters[this.getEnemyTurn(turn)].HP -= damageRounded
-
-            } else if (rollDie20 >= 18) {
-              console.log("DAÑO CRÍTICO HEROE")
-            }
-            break;
-        }
+        fighters[turn].atack(rollDie20)
 
       } else {
         console.log(fighters[turn].name + " obtiene un " + rollDie100 + " y ha fallado")
@@ -82,7 +61,10 @@ export default class Combat {
       // FASE 2 Daño del ataque
 
       round++
-      console.log(fighters)
+      // console.log(fighters)
+
+      console.log(turn)
+      console.log(enemyTurn)
     }
 
   }

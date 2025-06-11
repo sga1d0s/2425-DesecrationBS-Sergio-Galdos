@@ -7,8 +7,8 @@ export default class Character {
       this.DUR = durability,
       this.SPE = speed,
       this.POW = power,
-      this.COM = combat
-    this.HP = Math.min(this.STR * 10, 666)
+      this.COM = combat,
+      this.HP = Math.min(this.STR * 10, 666)
   }
 
   attack() {

@@ -6,7 +6,7 @@ export default class TrainingGround {
     this.data = data
   }
 
-  static createSuperHero(data) {
+  createSuperHero(data) {
 
     // crear superheroe aleatorio a partir de la db
 
@@ -30,7 +30,6 @@ export default class TrainingGround {
       if (superHero.name !== "Junkpile") {
         superHeroes.push(superHero)
       }
-
     }
 
     const randomIndex = Math.floor(Math.random() * superHeroes.length)
@@ -38,7 +37,7 @@ export default class TrainingGround {
     return superHeroes[randomIndex]
   }
 
-  static createVillain(data) {
+  createVillain(data) {
 
     // crear villano buscando el character
     const superVillain = []
